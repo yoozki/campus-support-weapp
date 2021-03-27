@@ -1,0 +1,74 @@
+<view  class="user_container">
+    <view wx:if="{{ isLogin }}">
+        <view  class="user_info">
+            <image class="user_info_avatar" src="{{ userInfo.avatar }}" />
+            <text >{{ userInfo.nickName }}</text>
+        </view>
+        <view class="user_info_balance">
+            <text class="user_info_balance_item">余额(元)：</text>
+            <text class="user_info_balance_digital">{{ userInfo.balance }}</text>
+        </view>
+        <view class="user_order">
+            <view class="user_order_title">我的订单</view>
+            <van-grid border="{{ false }}">
+                <navigator url="">
+                    <van-grid-item icon="https://yoozki-blog-1251326302.cos.ap-guangzhou.myqcloud.com/campussupport/icon/toBePaid.png" text="待支付" />
+                </navigator>
+                <navigator url="">
+                    <van-grid-item icon="https://yoozki-blog-1251326302.cos.ap-guangzhou.myqcloud.com/campussupport/icon/waitingOrder.png" text="待接单" />
+                </navigator>
+                <navigator url="">
+                    <van-grid-item icon="https://yoozki-blog-1251326302.cos.ap-guangzhou.myqcloud.com/campussupport/icon/processing.png" text="进行中" />
+                </navigator>
+                <navigator url="">
+                    <van-grid-item icon="https://yoozki-blog-1251326302.cos.ap-guangzhou.myqcloud.com/campussupport/icon/completed.png" text="已完成" />
+                </navigator>
+            </van-grid>
+        </view>
+        <view class="user_options">
+            <view class="user_options_item">
+                <van-icon class="user_options_icon" size="40rpx" name="https://yoozki-blog-1251326302.cos.ap-guangzhou.myqcloud.com/campussupport/icon/wallet.png" />
+                <view class="user_options_title">我的钱包</view>
+            </view>
+            <view class="user_options_item">
+                <van-icon class="user_options_icon" size="40rpx" name="https://yoozki-blog-1251326302.cos.ap-guangzhou.myqcloud.com/campussupport/icon/profile.png" />
+                <view class="user_options_title">个人资料</view>
+            </view>
+            <navigator url="/pages/auth/auth">
+                <view class="user_options_item">
+                    <van-icon class="user_options_icon" size="40rpx" name="https://yoozki-blog-1251326302.cos.ap-guangzhou.myqcloud.com/campussupport/icon/certification.png" />
+                <view class="user_options_title">实名认证</view>
+            </view>
+            </navigator>
+            <view style="margin-top: 50rpx">
+                <van-button
+                    type="danger"
+                    plain
+                    size="large"
+                    bind:click="showDialog"
+                >
+                    退出登录
+                </van-button>
+            </view>
+        </view>
+    </view>
+    <view wx:if="{{ !isLogin }}">
+        <view class="login-flex-center">
+            <image class="login-logo" src="https://yoozki-blog-1251326302.cos.ap-guangzhou.myqcloud.com/campussupport/logo.png" />
+        </view>
+        <view class="login-button">
+            <van-button 
+            open-type="getUserInfo" 
+            bindgetuserinfo="handleGetUserInfo" 
+            color="#F5C206" 
+            size="large" 
+            icon="https://yoozki-blog-1251326302.cos.ap-guangzhou.myqcloud.com/campussupport/icon/wechat.png" 
+            type="primary" 
+            block>
+                微信登录
+            </van-button>
+            </view>
+    </view>
+    <van-dialog id="van-dialog" />
+    <van-toast id="van-toast" />
+</view>

@@ -1,0 +1,10 @@
+<view class="login-container">
+    <view class="login-flex-center">
+        <image class="login-logo" src="https://yoozki-blog-1251326302.cos.ap-guangzhou.myqcloud.com/campussupport/logo.png" />
+    </view>
+    <view class="login-button">
+        <van-button open-type="getUserInfo" bindgetuserinfo="handleGetUserInfo" color="#F5C206" size="large" icon="https://yoozki-blog-1251326302.cos.ap-guangzhou.myqcloud.com/campussupport/icon/wechat.png" type="primary" block>
+            微信登录
+        </van-button>
+    </view>
+</view>

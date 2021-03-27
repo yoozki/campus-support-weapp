@@ -1,0 +1,155 @@
+<view class="errand_container">
+    <view class="errand_card">
+        <view class="errand_title">
+            任务类型
+        </view>
+        <van-radio-group value="{{ tagRadio }}">
+          <van-cell-group>
+            <van-cell title="代取快递" clickable data-name="1" bind:click="onTagClick">
+              <van-radio slot="right-icon" name="1" checked-color="#F5C206"/>
+            </van-cell>
+            <van-cell title="代跑腿" clickableF data-name="2" bind:click="onTagClick">
+              <van-radio slot="right-icon" name="2"  checked-color="#F5C206"/>
+            </van-cell>
+          </van-cell-group>
+        </van-radio-group>
+    </view>
+    <view class="errand_card">
+        <view class="errand_title">
+            任务信息
+        </view>
+        <van-cell-group>
+            <van-field
+                bind:change="onFieldTargetAddress"
+                placeholder="请输入(取件)目标地址"
+                label="目标地址"
+                title-width="120rpx"
+                placeholder-style="font-size: 24rpx"
+                border="{{ false }}"
+            />
+            <van-field
+                bind:change="onFieldDeliveryAddress"
+                placeholder="请输入送达地址"
+                label="送达地址"
+                title-width="120rpx"
+                placeholder-style="font-size: 24rpx"
+                border="{{ false }}"
+            />
+            <van-field
+                bind:change="onFieldDeliveryTime"
+                value="{{ deliveryTimeValue }}"
+                readonly="{{ true }}"
+                label="送达时间"
+                title-width="120rpx"
+                placeholder="请限制送达时间"
+                placeholder-style="font-size: 24rpx"
+                bind:click-input="handleShowTimePicker"
+            />
+            <van-field
+                bind:change="onFieldTitle"
+                placeholder="请输入任务标题(简略描述任务要点)"
+                label="任务标题"
+                title-width="120rpx"
+                placeholder-style="font-size: 24rpx"
+                border="{{ false }}"
+            />
+            <van-field
+                bind:change="onFieldDetail"
+                placeholder="如是代取快递，请填写收件码、及手机尾号"
+                label="任务细节"
+                title-width="120rpx"
+                placeholder-style="font-size: 24rpx"
+                border="{{ false }}"
+            />
+        </van-cell-group>
+    </view>
+    <view class="errand_card">
+        <view class="errand_title">
+            联系信息
+        </view>
+        <van-cell-group>
+            <van-field
+                bind:change="onFieldReceiverName"
+                placeholder="请输入联系人"
+                label="联系人"
+                title-width="120rpx"
+                placeholder-style="font-size: 24rpx"
+                border="{{ false }}"
+            />
+            <van-field
+                bind:change="onFieldReceiverPhone"
+                placeholder="请输入联系电话"
+                label="联系电话"
+                type="number"
+                title-width="120rpx"
+                placeholder-style="font-size: 24rpx"
+                border="{{ false }}"
+            />
+        </van-cell-group>
+    </view>
+    <view class="errand_card">
+        <view class="errand_title">
+            赏金
+        </view>
+        <van-cell-group>
+            <van-field
+                bind:change="onFieldReward"
+                placeholder="请输入赏金(不低于2元)"
+                label="赏金"
+                type="digit"
+                title-width="120rpx"
+                placeholder-style="font-size: 24rpx"
+                border="{{ false }}"
+            />
+        </van-cell-group>
+    </view>
+    <view class="errand_card">
+        <view class="errand_title">
+            接单限制
+        </view>
+        <van-radio-group value="{{ sexLimitRadio }}">
+          <van-cell-group>
+            <van-cell title="不限男女" clickable data-name="0" bind:click="onSexLimitClick">
+              <van-radio slot="right-icon" name="0" checked-color="#F5C206"/>
+            </van-cell>
+            <van-cell title="限男生" clickable data-name="1" bind:click="onSexLimitClick">
+              <van-radio slot="right-icon" name="1"  checked-color="#F5C206"/>
+            </van-cell>
+            <van-cell title="限女生" clickable data-name="2" bind:click="onSexLimitClick">
+              <van-radio slot="right-icon" name="2" checked-color="#F5C206"/>
+            </van-cell>
+          </van-cell-group>
+        </van-radio-group>
+    </view>
+    <view>
+        <van-button 
+            disabled="{{ buttonDisabled }}" 
+            bind:click="handlePublish" 
+            custom-style="width:90%" round="{{ true }}" 
+            color="#F5C206" 
+            size="large" 
+            type="primary" 
+            block
+        >
+            发布
+        </van-button>
+    </view>
+    <van-toast id="van-toast" />
+
+</view>
+
+
+<van-popup show="{{ showTimePicker }}" bind:close="handleCloseTimePicker" position="bottom">
+   <van-datetime-picker
+    title="选择送货时间"
+    type="datetime"
+    filter="{{ filter }}"
+    value="{{ currentTime }}"
+    min-date="{{ minDate }}"
+    max-date="{{ maxDate }}"
+    formatter="{{ formatter }}"
+    bind:confirm="handleConfirm"
+    bind:input="onInput"
+    bind:cancel="handleCloseTimePicker"
+   />
+</van-popup>

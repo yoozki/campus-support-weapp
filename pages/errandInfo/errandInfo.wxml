@@ -1,0 +1,63 @@
+<view class="errandInfo_container">
+    
+    <view class="errandInfo_receiver">
+        <view class="errandInfo_icon">
+            <van-icon size="70rpx" name="https://yoozki-blog-1251326302.cos.ap-guangzhou.myqcloud.com/campussupport/icon/receiver.png" />
+        </view>
+        <view class="errandInfo_receiver_info" >
+            <view class="errandInfo_receiver_name" >
+                {{ receiverName }}
+            </view>
+            <view class="errandInfo_receiver_phone" >
+                {{ receiverPhone }}
+            </view>
+        </view>
+    </view>
+
+    <view class="errandInfo_info">
+        <view class="errandInfo_tag">
+            <van-tag color="#7232dd" plain>{{ campusName }}</van-tag>
+        </view>
+        <view class="errandInfo_tag" >
+            <van-tag color="#f2826a" plain>{{ tagName }}</van-tag>
+        </view>
+
+        <view class="errandInfo_info_title">
+            <text >任务标题：</text>{{ title }}
+        </view>
+        <view class="errandInfo_info_item">
+            <text >目标地址：</text>
+            <text >{{ targetAddress }}</text>
+        </view>
+        <view class="errandInfo_info_item">
+            <text >送达地址：</text>
+            <text >{{ deliveryAddress }}</text>
+        </view>
+        <view class="errandInfo_info_item">
+            <text >送达时间：</text>
+            <text >{{ deliveryTime }}</text>
+        </view>
+        <view class="errandInfo_info_detail">
+            <text >任务细节：</text>
+            <text >{{ detail }}</text>
+        </view>
+        <view class="errandInfo_info_item">
+            <text >支付时间：</text>
+            <text >{{ gmtModified }}</text>
+        </view>
+        <view class="errandInfo_info_item">
+            <text >创建时间：</text>
+            <text >{{ gmtCreate }}</text>
+        </view>
+    </view>
+
+    <view class="errandInfo_info">
+        <view wx:if="!{{ deliver }}" class="errandInfo_wait">等待接单中...</view>
+    </view>
+
+    <view class="errandInfo_info">
+
+    </view>
+
+</view>
+

@@ -1,0 +1,24 @@
+.errand_container {
+    position: absolute;
+    background-color: #F2F2F2;
+    width: 100%;
+}
+
+.errand_title {
+    padding-top: 20rpx;
+    padding-left: 20rpx;
+    margin-bottom: 20rpx;
+    font-size: 25rpx;
+    color: #B1B1B1;
+}
+
+.errand_card {
+    width: 95%;
+    margin:30rpx auto;
+    background-color:white;
+    border-radius: 20rpx;
+}
+
+.errand_button {
+    margin-top: 100rpx;
+}

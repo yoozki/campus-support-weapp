@@ -1,0 +1,10 @@
+.index_location text {
+    color: #5a5a5a;
+    font-size: 30rpx;
+    position:relative;
+    bottom: 10rpx;
+}
+
+.index_location {
+
+}

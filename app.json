@@ -1,0 +1,57 @@
+{
+  "pages": [
+    "pages/index/index",
+    "pages/errandInfo/errandInfo",
+    "pages/errandPay/errandPay",
+    "pages/user/user",
+    "pages/publishGoods/publishGoods",
+    "pages/orderWait/orderWait",
+    "pages/auth/auth",
+    "pages/publish/publish",
+    "pages/forum/forum",
+    "pages/message/message",
+    "pages/order/order",
+    "pages/errand/errand"
+  ],
+  "tabBar": {
+    "selectedColor": "#F5C206",
+    "list": [
+      {
+        "pagePath": "pages/index/index",
+        "text": "首页",
+        "iconPath": "/assets/tabbar/index.png",
+        "selectedIconPath": "/assets/tabbar/index_selected.png"
+      },
+      {
+        "pagePath": "pages/forum/forum",
+        "text": "论坛",
+        "iconPath": "/assets/tabbar/forum.png",
+        "selectedIconPath": "/assets/tabbar/forum_selected.png"
+      },
+      {
+        "pagePath": "pages/publish/publish",
+        "iconPath": "/assets/tabbar/publish.png",
+        "selectedIconPath": "/assets/tabbar/publish.png"
+      },
+      {
+        "pagePath": "pages/message/message",
+        "text": "消息",
+        "iconPath": "/assets/tabbar/message.png",
+        "selectedIconPath": "/assets/tabbar/message_selected.png"
+      },
+      {
+        "pagePath": "pages/user/user",
+        "text": "我的",
+        "iconPath": "/assets/tabbar/profile.png",
+        "selectedIconPath": "/assets/tabbar/profile_selected.png"
+      }
+    ]
+  },
+  "window": {
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#fff",
+    "navigationBarTitleText": "Weixin",
+    "navigationBarTextStyle": "black"
+  },
+  "sitemapLocation": "sitemap.json"
+}

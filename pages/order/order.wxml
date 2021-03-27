@@ -1,0 +1,3 @@
+<view class="order_container">
+    <van-search value="{{ value }}" placeholder="搜索任务" />
+</view>

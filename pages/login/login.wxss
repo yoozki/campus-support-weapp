@@ -1,0 +1,18 @@
+.login-container {
+    margin: 0 auto;
+    width: 80%;
+}
+
+.login-flex-center {
+    display:flex;
+    justify-content: center;    
+}
+
+.login-logo {
+    width: 333rpx;
+    height: 350rpx;
+}
+
+.login-button {
+    margin-top: 80rpx;
+}

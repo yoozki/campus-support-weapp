@@ -1,0 +1,83 @@
+.errandPay_container {
+    position: absolute;
+    background-color: #F2F2F2;
+    width: 100%;
+    height: 100%;
+}
+
+.errandPay_receiver {
+    width: 95%;
+    margin:30rpx auto;
+    border-radius: 20rpx;
+    display: flex;
+    background-color:#F4BA05;
+}
+
+.errandPay_icon {
+    margin: 40rpx 20rpx;
+}
+
+.errandPay_receiver_info {
+    margin: 30rpx 10rpx 
+}
+
+.errandPay_receiver_name {
+    font-size: 35rpx;
+}
+
+.errandPay_info {
+    width: 95%;
+    margin:30rpx auto;
+    border-radius: 20rpx;
+    background-color:white
+}
+
+.submitButton button {
+    background-color: #F4BA05;
+    border-color: #F4BA05;
+}
+
+.submitButton button view {
+    color: black;
+    font-weight: 400;
+}
+
+.errandPay_info_title {
+    font-size: 28rpx;
+    padding-top: 20rpx;
+    margin-left: 20rpx;
+}
+
+.errandPay_info_item {
+    margin-top: 15rpx;
+    margin-left: 10rpx;
+}
+
+.errandPay_info_item text {
+    margin-left: 10rpx;
+    font-size: 29rpx;
+}
+
+.errandPay_info_detail {
+    font-size: 29rpx;
+    margin-top: 15rpx;
+    margin-left: 20rpx;
+    padding-bottom: 10rpx;
+}
+
+.errandPay_countdown {
+    background-color: rgb(255, 89, 89);
+    width: 220rpx;
+    margin: 0 auto;
+}
+
+.errandPay_countdown view {
+    color: white;
+    margin: 0 auto;
+    width: 70%;
+}
+
+.errandPay_tag {
+    margin-left: 20rpx;
+    margin-top: 10rpx;
+}

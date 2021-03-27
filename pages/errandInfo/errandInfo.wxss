@@ -1,0 +1,66 @@
+.errandInfo_container {
+    position: absolute;
+    background-color: #F2F2F2;
+    width: 100%;
+    height: 100%;
+}
+
+.errandInfo_receiver {
+    width: 95%;
+    margin:30rpx auto;
+    border-radius: 20rpx;
+    display: flex;
+    background-color:#F4BA05;
+}
+
+.errandInfo_icon {
+    margin: 40rpx 20rpx;
+}
+
+.errandInfo_receiver_info {
+    margin: 30rpx 10rpx 
+}
+
+.errandInfo_receiver_name {
+    font-size: 35rpx;
+}
+
+.errandInfo_info {
+    width: 95%;
+    margin:30rpx auto;
+    border-radius: 20rpx;
+    background-color:white
+}
+
+.errandInfo_info_title {
+    font-size: 28rpx;
+    padding-top: 20rpx;
+    margin-left: 20rpx;
+}
+
+.errandInfo_info_item {
+    margin-top: 15rpx;
+    margin-left: 10rpx;
+}
+
+.errandInfo_info_item text {
+    margin-left: 10rpx;
+    font-size: 29rpx;
+}
+
+.errandInfo_info_detail {
+    font-size: 29rpx;
+    margin-top: 15rpx;
+    margin-left: 20rpx;
+    padding-bottom: 10rpx;
+}
+
+.errandInfo_tag {
+    margin-left: 20rpx;
+    margin-top: 10rpx;
+}
+
+.errandInfo_wait {
+    margin: 0 auto;
+    width: 200rpx;
+}

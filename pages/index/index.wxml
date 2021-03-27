@@ -1,0 +1,47 @@
+<view class="index_container">
+  <view class="index_location" bindtap="handleShowPicker">
+    <van-icon name="location-o" size="42rpx"/>
+    <text >{{ campusName }}</text>
+  </view>
+  <view class="index_banner">
+    <swiper>
+      <swiper-item>
+        <image style="width:100%;height:100%" src="https://yoozki-blog-1251326302.cos.ap-guangzhou.myqcloud.com/campussupport/banner.png"></image>
+      </swiper-item>
+    </swiper>
+  </view>
+  <van-divider contentPosition="center" textColor="#F5C206">跑腿专区</van-divider>
+  <view class="index_navigation">
+    <van-grid border="{{ false }}" column-num="3">
+      <navigator url="/pages/order/order">
+        <van-grid-item icon="https://yoozki-blog-1251326302.cos.ap-guangzhou.myqcloud.com/campussupport/icon/express.png" text="快递" />
+      </navigator>
+      <navigator url="">
+        <van-grid-item icon="https://yoozki-blog-1251326302.cos.ap-guangzhou.myqcloud.com/campussupport/icon/run.png" text="跑腿" />
+      </navigator>
+      <navigator url="">
+        <van-grid-item icon="https://yoozki-blog-1251326302.cos.ap-guangzhou.myqcloud.com/campussupport/icon/all.png" text="全部" />
+      </navigator>
+    </van-grid>
+    <van-divider />
+    <van-grid border="{{ false }}" direction="horizontal" column-num="2">
+      <navigator url="">
+        <van-grid-item icon="https://yoozki-blog-1251326302.cos.ap-guangzhou.myqcloud.com/campussupport/icon/trading.png" text="闲置交易" />
+      </navigator>
+      <navigator url="">
+        <van-grid-item icon="https://yoozki-blog-1251326302.cos.ap-guangzhou.myqcloud.com/campussupport/icon/time.png" text="时空对话" />
+      </navigator>
+    </van-grid>
+    <van-divider />
+  </view>
+
+<van-popup show="{{ showPicker }}" bind:close="handleClosePicker" position="bottom">
+  <van-picker 
+    columns="{{ campusList }}"
+    show-toolbar
+    title="选择学校"
+    bind:confirm="onConfirm"
+    bind:cancel="handleClosePicker"
+  />
+</van-popup>
+</view>

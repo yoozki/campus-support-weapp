@@ -1,0 +1,81 @@
+.user_container {
+    margin-left: 30rpx;
+    margin-right: 30rpx;
+}
+
+.user_info {
+    display: flex;
+}
+
+.user_info text {
+    font-size: 40rpx;
+    margin-left: 20rpx;
+}
+
+.user_info_avatar {
+    border-radius: 90rpx;
+    width:130rpx;
+    height:130rpx;
+}
+
+.user_info_balance {
+    margin-top: 30rpx;
+    display: flex;
+}
+
+.user_info_balance_item {
+    font-size: 26rpx;
+    color: #A7A7A7;
+    line-height: 44rpx;
+}
+
+.user_order {
+    margin-top: 30rpx;
+    border-radius: 30rpx;
+    border: solid 1rpx #F5F5F5;
+}
+
+.user_order_title {
+    margin-top: 25rpx;
+    margin-left: 25rpx;
+    font-size: 28rpx;
+}
+
+.user_options {
+    margin-top: 38rpx;
+}
+
+.user_options_icon {
+    padding-bottom: 25rpx;
+}
+
+.user_options_title{
+    font-size: 28rpx;
+    margin-left: 45rpx;
+    padding-bottom: 25rpx;
+}
+
+.user_options_item {
+    display: flex;
+    margin-top: 40rpx;
+    border-bottom: 1rpx solid #F5F5F5;
+}
+
+.login-container {
+    margin: 0 auto;
+    width: 80%;
+}
+
+.login-flex-center {
+    display:flex;
+    justify-content: center;    
+}
+
+.login-logo {
+    width: 333rpx;
+    height: 350rpx;
+}
+
+.login-button {
+    margin-top: 80rpx;
+}
