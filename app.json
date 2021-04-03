@@ -1,16 +1,17 @@
 {
   "pages": [
     "pages/index/index",
+    "pages/errandDeliveryInfo/errandDeliveryInfo",
+
     "pages/errandInfo/errandInfo",
     "pages/errandPay/errandPay",
+    "pages/errandList/errandList",
     "pages/user/user",
     "pages/publishGoods/publishGoods",
-    "pages/orderWait/orderWait",
     "pages/auth/auth",
     "pages/publish/publish",
     "pages/forum/forum",
     "pages/message/message",
-    "pages/order/order",
     "pages/errand/errand"
   ],
   "tabBar": {

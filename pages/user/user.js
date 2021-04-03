@@ -34,21 +34,36 @@ Page({
             nickName: userInfo.nickName
           },
         }).then(res => {
-          Toast.success('登录成功');
-          setTimeout(() => {
+          if (res.data.code === 0) {
+            Toast.success('登录成功');
             const token = res.data.data
             console.log(token)
             wx.setStorageSync(TOKEN, token)
             app.globalData.token = token
-            this.handleGetUserInfoServer(token)
-          }, 1300);
-        }).catch(res => {
-          
+            request({
+              url: '/user/auth',
+              header: {
+                'Authorization': token
+              }
+            }).then(res => {
+              if (res.data.code === 0) {
+                const campusId = res.data.data.campusId
+                const gender = res.data.data.gender
+                app.globalData.campusId = campusId
+                app.globalData.gender = gender
+              } else {
+
+              }
+            })
+            setTimeout(() => {
+              this.handleGetUserInfoServer(token)
+            }, 1300)
+          }
         })
-        
       },
     });
   },
+
 
   handleGetUserInfoServer(token) {
     request({

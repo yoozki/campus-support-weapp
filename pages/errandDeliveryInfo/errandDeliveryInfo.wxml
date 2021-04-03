@@ -1,0 +1,82 @@
+<view class="errandDeliveryInfo_container">
+    <van-toast id="van-toast" />
+    <van-notify id="van-notify" />
+    <van-dialog id="van-dialog" />
+
+    <view wx:if="{{ status === 3 }}" class="errandDeliveryInfo_countdown">
+        <van-count-down bind:finish="countdownFinished" time="{{ Countdown }}" format="送达倒计时：DD 天 HH 时 mm 分 ss 秒" />
+    </view>
+    <van-steps active-color="#F5C206" steps="{{ steps }}" active="{{ active }}" />
+    <view class="errandDeliveryInfo_receiver">
+        <view class="errandDeliveryInfo_icon">
+            <van-icon size="70rpx" name="https://yoozki-blog-1251326302.cos.ap-guangzhou.myqcloud.com/campussupport/icon/receiver.png" />
+        </view>
+        <view class="errandDeliveryInfo_receiver_info" >
+            <view class="errandDeliveryInfo_receiver_name" >
+                {{ receiverName }}
+            </view>
+            <view class="errandDeliveryInfo_receiver_phone" >
+                {{ receiverPhone }}
+            </view>
+        </view>
+    </view>
+
+    <view class="errandDeliveryInfo_info">
+        <van-cell-group>
+            <van-cell title-width="120rpx" title="任务标题" value="{{ title }}" />
+            <van-cell title-width="120rpx" title="任务细节" value="{{ detail }}" />
+            <van-cell title-width="120rpx" title="目标地址" value="{{ targetAddress }}" />
+            <van-cell title-width="120rpx" title="送达地址" value="{{ deliveryAddress }}" />
+            <van-cell title-width="120rpx" title="送达时间" value="{{ deliveryTime }}" />
+            <van-cell title-width="120rpx" title="性别限制" value="{{ sexLimit }}" />
+            <van-cell title-width="120rpx" title="任务赏金" value="{{ reward }} 元"/>
+        </van-cell-group>
+        <van-collapse value="{{ activeNames }}" bind:change="onChange">
+            <van-collapse-item title="更多信息" name="1">
+                <van-cell title-width="120rpx" title="任务类型" value="{{ tagValue }}" />
+                <van-cell title-width="120rpx" title="订单编号" value="{{ orderId }}" />
+                <van-cell title-width="120rpx" wx:if="{{ deliveredTime }}" title="送达时间" value="{{ DeliveredTime }}" />
+                <van-cell title-width="120rpx" wx:if="{{ cancelTime }}" title="取消时间" value="{{ cancelTime }}" />
+                <van-cell title-width="120rpx" title="创建时间" value="{{ createTime }}" />
+            </van-collapse-item>
+        </van-collapse>
+    </view>
+
+    <view wx:if="{{ buttonShow }}" class="errandDeliveryInfo_button">
+        <van-button bind:click="completeBtn" type="primary" custom-style="margin: auto 30rpx" plain  >我已送达</van-button>
+        <van-button 
+            bind:click="handleConfirm" 
+            custom-style="margin: auto 30rpx"
+            plain
+            color="#F4BA05" 
+        >
+            私信对方
+        </van-button>
+        <van-button bind:click="cancelBtn" color="red" custom-style="margin: auto 30rpx" plain  >取消任务</van-button>
+    </view>
+
+    <view wx:if="{{ !buttonShow }}" class="errandDeliveryInfo_button">
+        <van-button 
+            bind:click="handleReport" 
+            custom-style="margin: auto 30rpx; width:300rpx"
+            plain
+            color="#F4BA05" 
+        >
+            反馈
+        </van-button>
+    </view>
+
+    <van-popup custom-style="width:100%" show="{{ showComplete }}" bind:close="onCompleteClose">
+            <view style="color:red;font-size:27rpx;text-align:center;margin-top:5rpx">请与下单用户索要任务确认码</view>
+            <van-field
+                label="确认码"
+                placeholder="请输入确认码"
+                type="number"
+                title-width="120rpx"
+                bind:change="onCodeChange"
+            />
+            <view style="width:120rpx;margin:0 auto;margin-top:8rpx">
+                <van-button bind:click="codeSubmit" size="small" color='#F5C206' plain type="primary">确定</van-button>
+            </view>
+    </van-popup>
+</view>

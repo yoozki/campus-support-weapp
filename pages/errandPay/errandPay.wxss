@@ -67,14 +67,11 @@
 
 .errandPay_countdown {
     background-color: rgb(255, 89, 89);
-    width: 220rpx;
-    margin: 0 auto;
 }
 
 .errandPay_countdown view {
     color: white;
-    margin: 0 auto;
-    width: 70%;
+    text-align:center
 }
 
 .errandPay_tag {

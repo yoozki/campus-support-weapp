@@ -1,0 +1,74 @@
+page {
+    height: 100%;
+    background-color: #F2F2F2;
+}
+
+.errandDeliveryInfo_container {
+    position: absolute;
+
+    width: 100%;
+}
+
+.errandDeliveryInfo_top {
+    width: 95%;
+    margin:30rpx auto;
+    border-radius: 20rpx;
+    background-color: #F4BA05;
+}
+
+.errandDeliveryInfo_top_title {
+    margin:0 auto;
+    height: 150rpx;
+    width: 200rpx;
+    text-align:center;
+}
+
+.errandDeliveryInfo_top_title_icon {
+    margin-top: 20rpx;
+}
+
+.errandDeliveryInfo_info {
+    width: 95%;
+    height: auto;
+    margin:30rpx auto;
+    border-radius: 20rpx;
+    background-color:white
+}
+
+.errandDeliveryInfo_info text {
+    color: black;
+}
+
+.errandDeliveryInfo_tag {
+    margin-left: 20rpx;
+    margin-top: 10rpx;
+}
+
+.errandDeliveryInfo_receiver {
+    width: 95%;
+    margin:30rpx auto;
+    border-radius: 20rpx;
+    display: flex;
+    background-color:#F4BA05;
+}
+
+.errandDeliveryInfo_icon {
+    margin: 40rpx 20rpx;
+}
+
+.errandDeliveryInfo_receiver_info {
+    margin: 30rpx 10rpx 
+}
+
+.errandDeliveryInfo_receiver_name {
+    font-size: 35rpx;
+}
+
+.errandDeliveryInfo_countdown {
+    background-color: #F4BA05;
+    text-align: center;
+}
+
+.errandDeliveryInfo_button {
+    text-align: center;
+}

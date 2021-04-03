@@ -1,0 +1,67 @@
+<view class="errandList_container">
+<van-notify id="van-notify" />
+    <van-search value="{{ keyword }}" placeholder="请输入搜索关键词" bind:search="onSearch" />
+    <van-dropdown-menu active-color="#F4BA05">
+        <van-dropdown-item bind:change="tagOptionChange" value="{{ tagId }}" options="{{ tagOption }}" />
+        <van-dropdown-item bind:change="sexLimitOptionChange" value="{{ sexLimit }}" options="{{ sexLimitOption }}" />
+        <van-dropdown-item bind:change="sortOptionChange" value="{{ sort }}" options="{{ sortOption }}" />
+    </van-dropdown-menu>
+
+    <view class="errandList_list" wx:if="{{ errandList[0] }}">
+        <view wx:for="{{errandList}}" wx:key="key" class="errandList_list_item">
+            <van-panel title="{{ errandList[index].title }}" status="{{ errandList[index].sexLimit === 0 ? '不限男女' : errandList[index].sexLimit === 1 ? '仅限男' : '仅限女' }}" use-footer-slot>
+              <view class="errandList_list_item_context">
+                <view class="errandList_list_item_context_item">
+                    <text >目标地址：</text> <text >{{ errandList[index].targetAddress }}</text>
+                </view>
+                <view class="errandList_list_item_context_item">
+                    <text >送达地址：</text> <text >{{ errandList[index].deliveryAddress }}</text>
+                </view>
+                <view class="errandList_list_item_context_item">
+                    <text >送达时间：</text> <text >{{ errandList[index].deliveryTime }}</text>
+                </view>
+              </view>
+              <view slot="footer" class="footer-class">
+                <view class="errandList_list_item_context_rewad">
+                    <text >赏金：</text> <text >{{ errandList[index].reward }} 元</text>
+                </view>
+                <view class="errandList_list_tag">
+                    <van-tag color="#7232dd" plain>{{ campusList[errandList[index].campusId - 1] }}</van-tag>
+                </view>
+                <view class="errandList_list_tag" style="margin-left:10rpx" >
+                    <van-tag color="#7232dd" plain>{{ errandList[index].tagId === 1 ? "快递" : "跑腿" }}</van-tag>
+                </view>
+                <view  class="errandList_list_item_btn">
+                    <van-button bindtap="deliverySumbit" data-index='{{ errandList[index].orderId }}'  plain size="small" color="#F5C206">我要接单</van-button>
+                </view>
+              </view>
+            </van-panel>
+        </view>
+        <view style="text-align:center;margin-top: 200rpx" wx:if="{{ isLoading }}">
+            <van-loading size="24px" vertical>加载中...</van-loading>
+        </view>
+
+
+    </view>
+
+    <view wx:if="{{ errandList.length === 0 && !isLoading }}">
+        <van-empty description="暂无任务" />
+    </view>
+
+    <van-popup show="{{ show }}" bind:close="onClose" position="bottom" custom-style="height: 18%">
+        <view class="errandList_delivery_phone">
+            <view style="color:red;font-size:27rpx;text-align:center;margin-top:5rpx">请在规定时间内完成任务，否则系统将限制接单</view>
+            <van-field
+                label="联系手机"
+                placeholder="请输入联系手机"
+                type="number"
+                title-width="120rpx"
+                bind:change="onChange"
+            />
+            <view style="width:120rpx;margin:0 auto;margin-top:8rpx">
+                <van-button bind:click="submit" size="small" class="errandList_delivery_btn" color='#F5C206' plain type="primary">确定</van-button>
+            </view>
+        </view>
+    </van-popup>
+    <van-dialog id="van-dialog" />
+</view>

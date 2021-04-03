@@ -1,3 +1,5 @@
+import request from './service/network'
+
 const TOKEN = 'token'
 
 App({
@@ -9,26 +11,11 @@ App({
   },
 
   onLaunch() {
-    // 展示本地存储能力
-    // const token = wx.getStorageSync(TOKEN)
-    // if (token) {
-    //   wx.request({
-    //     url: 'http://localhost:10000/user/passport/verify/token',
-    //     header: {
-    //       'content-type':'application/json',
-    //       'Authorization': token
-    //     },
-    //     method: 'POST',
-    //     success: (res)=>{
-    //       if (res.data.code != 10000) {
-    //         wx.removeStorageSync(TOKEN)
-    //       } else {
-    //         this.globalData.isLogin = true
-    //       }
-    //     },
-    //     fail: ()=>{},
-    //     complete: ()=>{}
-    //   });
-    // }
+    request({
+      url: '/user/public/campus'
+    }).then(res => {
+      const campusList = res.data.data.map(item => item.campusName)
+      this.globalData.campusList = campusList
+    })
   },
 })

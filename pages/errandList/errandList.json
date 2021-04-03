@@ -1,0 +1,18 @@
+{
+  "usingComponents": {
+    "van-dropdown-menu": "@vant/weapp/dropdown-menu/index",
+    "van-dropdown-item": "@vant/weapp/dropdown-item/index",
+    "van-panel": "@vant/weapp/panel/index",
+    "van-button": "@vant/weapp/button/index",
+    "van-tag": "@vant/weapp/tag/index",
+    "van-icon": "@vant/weapp/icon/index",
+    "van-empty": "@vant/weapp/empty/index",
+    "van-search": "@vant/weapp/search/index",
+    "van-loading": "@vant/weapp/loading/index",
+    "van-dialog": "@vant/weapp/dialog/index",
+    "van-field": "@vant/weapp/field/index",
+    "van-popup": "@vant/weapp/popup/index",
+    "van-notify": "@vant/weapp/notify/index"
+  },
+  "navigationBarTitleText": "任务列表"
+}

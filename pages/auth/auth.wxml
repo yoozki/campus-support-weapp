@@ -10,17 +10,31 @@
     <view class="auth_card">
         <van-cell-group>
             <van-field
-              label="真实姓名"
+              label="姓名"
               placeholder="请输入真实姓名"
               value="{{ realName }}"
+              title-width="100rpx"
               disabled="{{ isDisabled }}"
               border="{{ false }}"
               bind:change="onRealNameChange"
             />
             <van-field
+              label="性别"
+              placeholder="选择性别"
+              border="{{ false }}"
+              value="{{ sexValue }}"
+              title-width="100rpx"
+              readonly
+              right-icon="arrow-down"
+              bind:click-input="showSexPicker"
+              disabled="{{ isDisabled }}"
+              bind:click-icon="showSexPicker"
+            />
+            <van-field
               label="学校"
               placeholder="选择学校"
               border="{{ false }}"
+              title-width="100rpx"
               value="{{ campusValue }}"
               readonly
               right-icon="arrow-down"
@@ -31,13 +45,22 @@
             <van-field
               label="学号"
               placeholder="请输入学号"
+              title-width="100rpx"
               value="{{ studentId }}"
               border="{{ false }}"
               type="number"
               disabled="{{ isDisabled }}"
               bind:change="onStudentIdChange"
             />
-
+            <van-popup show="{{ showSex }}" bind:click-overlay="onSexPickerClose" position="bottom">
+                <van-picker 
+                    columns="{{ sexs }}"
+                    show-toolbar
+                    title="选择性别"
+                    bind:confirm="onSexPickerConfirm"
+                    bind:cancel="onSexPickerClose"
+                />
+            </van-popup>
             <van-popup show="{{ show }}" bind:click-overlay="onPickerClose"	position="bottom">
                 <van-picker 
                     columns="{{ campus }}"
@@ -47,6 +70,7 @@
                     bind:cancel="onPickerClose"
                 />
             </van-popup>
+
         </van-cell-group>
         <van-toast id="van-toast" />
     </view>

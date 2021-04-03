@@ -1,7 +1,7 @@
 import request from '../../service/network'
-const TAG_ID = 1;
 const app = new getApp()
 import Toast from '../../miniprogram_npm/@vant/weapp/toast/toast';
+import TimeUtils from '../../utils/timeUtils'
 
 
 Page({
@@ -15,8 +15,8 @@ Page({
     currentDate: new Date().getTime() + '',
     minDate: new Date().getTime() + 60 * 1000 * 30,
     maxDate: new Date().getTime() + 24 * 60 * 60 * 1000 * 2,
-    sexLimitRadio: null,
-    tagRadio: null,
+    sexLimitRadio: 0,
+    tagRadio: 1,
     orderInfo: {},
     formatter(type, value) {
       if (type === 'year') {
@@ -63,14 +63,11 @@ Page({
       message: '提交中...',
       forbidClick: true,
     });
-    this.setData({
-      'orderInfo.tagId': TAG_ID
-    })
     const token = app.globalData.token
     const orderInfo = this.data.orderInfo
     const campusId = app.globalData.campusId
     request({
-      url: '/errand/order',
+      url: '/errand/receiver',
       header: {
         'Authorization': token
       },
@@ -84,7 +81,7 @@ Page({
         receiverPhone: orderInfo.receiverPhone,
         reward: orderInfo.reward,
         sexLimit: orderInfo.sexLimit,
-        tagId: TAG_ID,
+        tagId: orderInfo.tagId,
         campusId: campusId
       },
       method: 'post'
@@ -205,21 +202,23 @@ Page({
     })
     const time = new Date(e.detail)
     const deliveryTime = this.handleFormateTime(time)
-    const nowDate = new Date().getDate()
-    let date = time.getDate()
-    let hours = time.getHours()
-    let minute = time.getMinutes()
-    if (date - nowDate === 0) {
-       date = "今天" 
-    } else if (date - nowDate === 1) {
-      date = "明天"
-    } else if (date - nowDate === 2) {
-      date = "后天"
-    }
-    if (hours < 10) { hours = '0' + hours }
-    if (minute < 10) { minute = '0' + minute }
+    // const nowDate = new Date().getDate()
+    // let date = time.getDate()
+    // let hours = time.getHours()
+    // let minute = time.getMinutes()
+    // if (date - nowDate === 0) {
+    //    date = "今天" 
+    // } else if (date - nowDate === 1) {
+    //   date = "明天"
+    // } else if (date - nowDate === 2) {
+    //   date = "后天"
+    // }
+    // if (hours < 10) { hours = '0' + hours }
+    // if (minute < 10) { minute = '0' + minute }
+    const deliveryTimeValue = TimeUtils(time)
     this.setData({
-      deliveryTimeValue: date + ' ' + hours + ':' + minute + ' 前',
+      // deliveryTimeValue: date + ' ' + hours + ':' + minute + ' 前',
+      deliveryTimeValue: deliveryTimeValue,
       'orderInfo.deliveryTime': deliveryTime
     })
     this.verifyDisabled()

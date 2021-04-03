@@ -1,2 +1,3 @@
 <!--pages/message/message.wxml-->
-<text>pages/message/message.wxml</text>
+<button bindtap="receiverWebsocket" >下单者发消息</button>
+<button bindtap="delivererWebsocket" >接单者发消息</button>

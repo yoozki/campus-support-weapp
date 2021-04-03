@@ -13,13 +13,13 @@
   <van-divider contentPosition="center" textColor="#F5C206">跑腿专区</van-divider>
   <view class="index_navigation">
     <van-grid border="{{ false }}" column-num="3">
-      <navigator url="/pages/order/order">
+      <navigator url="/pages/errandList/errandList?tagId=1">
         <van-grid-item icon="https://yoozki-blog-1251326302.cos.ap-guangzhou.myqcloud.com/campussupport/icon/express.png" text="快递" />
       </navigator>
-      <navigator url="">
+      <navigator url="/pages/errandList/errandList?tagId=2">
         <van-grid-item icon="https://yoozki-blog-1251326302.cos.ap-guangzhou.myqcloud.com/campussupport/icon/run.png" text="跑腿" />
       </navigator>
-      <navigator url="">
+      <navigator url="/pages/errandList/errandList">
         <van-grid-item icon="https://yoozki-blog-1251326302.cos.ap-guangzhou.myqcloud.com/campussupport/icon/all.png" text="全部" />
       </navigator>
     </van-grid>
@@ -34,6 +34,7 @@
     </van-grid>
     <van-divider />
   </view>
+<button bindtap="test" >测试</button>
 
 <van-popup show="{{ showPicker }}" bind:close="handleClosePicker" position="bottom">
   <van-picker 
@@ -44,4 +45,6 @@
     bind:cancel="handleClosePicker"
   />
 </van-popup>
+
+
 </view>

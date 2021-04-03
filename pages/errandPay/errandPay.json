@@ -5,7 +5,9 @@
     "van-count-down": "@vant/weapp/count-down/index",
     "van-dialog": "@vant/weapp/dialog/index",
     "van-tag": "@vant/weapp/tag/index",
-    "van-toast": "@vant/weapp/toast/index"
+    "van-toast": "@vant/weapp/toast/index",
+    "van-cell": "@vant/weapp/cell/index",
+    "van-cell-group": "@vant/weapp/cell-group/index"
   },
   "navigationBarTitleText": "订单付款"
 }

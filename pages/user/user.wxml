@@ -25,7 +25,7 @@
                 </navigator>
             </van-grid>
         </view>
-        <view class="user_options">
+        <!-- <view class="user_options">
             <view class="user_options_item">
                 <van-icon class="user_options_icon" size="40rpx" name="https://yoozki-blog-1251326302.cos.ap-guangzhou.myqcloud.com/campussupport/icon/wallet.png" />
                 <view class="user_options_title">我的钱包</view>
@@ -37,8 +37,8 @@
             <navigator url="/pages/auth/auth">
                 <view class="user_options_item">
                     <van-icon class="user_options_icon" size="40rpx" name="https://yoozki-blog-1251326302.cos.ap-guangzhou.myqcloud.com/campussupport/icon/certification.png" />
-                <view class="user_options_title">实名认证</view>
-            </view>
+                    <view class="user_options_title">实名认证</view>
+                </view>
             </navigator>
             <view style="margin-top: 50rpx">
                 <van-button
@@ -50,6 +50,27 @@
                     退出登录
                 </van-button>
             </view>
+        </view> -->
+
+        <view class="user_options">
+            <van-cell-group>
+            <van-cell
+                title="我的钱包"
+                icon="https://yoozki-blog-1251326302.cos.ap-guangzhou.myqcloud.com/campussupport/icon/wallet.png"
+                title-style="margin-left:25rpx"
+            />
+            <van-cell 
+                title="个人资料"
+                icon="https://yoozki-blog-1251326302.cos.ap-guangzhou.myqcloud.com/campussupport/icon/profile.png"
+                title-style="margin-left:25rpx"
+            />
+            <van-cell 
+                title="实名认证" 
+                icon="https://yoozki-blog-1251326302.cos.ap-guangzhou.myqcloud.com/campussupport/icon/certification.png"
+                title-style="margin-left:25rpx"
+                url="/pages/auth/auth"
+            />
+            </van-cell-group>
         </view>
     </view>
     <view wx:if="{{ !isLogin }}">

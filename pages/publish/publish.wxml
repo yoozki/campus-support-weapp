@@ -1,4 +1,6 @@
 <view class="publish_container">
+<van-dialog id="van-dialog" />
+
     <view class="publish_card">
         <view class="publish_title">
             请选择发布类型

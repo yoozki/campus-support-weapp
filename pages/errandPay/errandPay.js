@@ -22,7 +22,7 @@ Page({
     const orderId = options.orderId
     const token = app.globalData.token
     request({
-      url: '/errand/order/receiver/' + orderId,
+      url: '/errand/receiver/' + orderId,
       header: {
         'Authorization': token
       },
@@ -82,11 +82,12 @@ Page({
     Toast.loading({
       message: '支付中...',
       forbidClick: true,
+      duration: 0
     });
     const orderId = this.data.orderId
     const token = app.globalData.token
     request({
-      url: '/errand/order/payment/' + orderId,
+      url: '/errand/receiver/payment/' + orderId,
       method: 'put',
       header: {
         'Authorization': token

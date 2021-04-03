@@ -1,10 +1,15 @@
-const app = new getApp();
+import request from '../../service/network'
+import Dialog from '../../miniprogram_npm/@vant/weapp/dialog/dialog';
 
+
+
+const app = new getApp();
 
 Page({
 
   data: {
     radio: '1',
+    isShow: true,
   },
 
   handleNext() {
@@ -34,28 +39,51 @@ Page({
   },
 
   /**
-   * 生命周期函数--监听页面加载
-   */
-  onLoad: function (options) {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面初次渲染完成
-   */
-  onReady: function () {
-
-  },
-
-  /**
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
     const token = app.globalData.token
     if (!token) {
-      wx.switchTab({
-        url: '/pages/user/user'
-      })
+      Dialog.alert({
+        title: '请先登录',
+        message: '请登录后再完成操作！'
+      }).then(() => {
+        wx.switchTab({
+          url: '/pages/user/user'
+        })
+      });
+    } else {
+      if (token && this.data.isShow) {
+        request({
+          url: '/user/auth/',
+          header: {
+            'Authorization': token
+          },
+        }).then(res => {
+            if (res.data.code === 0) {
+              const campusName = res.data.data.campus
+              const campusId = res.data.data.campusId
+              this.setData({
+                campusName: campusName,
+                isShow: false
+              })
+              app.globalData.campusId = campusId
+            } else {
+              Dialog.confirm({
+                title: '用户未进行认证',
+                message: '点击确定跳转认证页面',
+              }).then(() => {
+                wx.navigateTo({
+                  url: '/pages/auth/auth'
+                })
+              }).catch(() => {
+                wx.switchTab({
+                  url: '/pages/index/index'
+                })
+              });
+            }
+        })
+      }
     }
   },
 
@@ -70,7 +98,7 @@ Page({
    * 生命周期函数--监听页面卸载
    */
   onUnload: function () {
-
+    
   },
 
   /**

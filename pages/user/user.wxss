@@ -1,9 +1,6 @@
-.user_container {
+.user_info {
     margin-left: 30rpx;
     margin-right: 30rpx;
-}
-
-.user_info {
     display: flex;
 }
 
@@ -19,6 +16,8 @@
 }
 
 .user_info_balance {
+    margin-left: 30rpx;
+    margin-right: 30rpx;
     margin-top: 30rpx;
     display: flex;
 }
@@ -30,6 +29,8 @@
 }
 
 .user_order {
+    margin-left: 30rpx;
+    margin-right: 30rpx;
     margin-top: 30rpx;
     border-radius: 30rpx;
     border: solid 1rpx #F5F5F5;
@@ -42,7 +43,11 @@
 }
 
 .user_options {
-    margin-top: 38rpx;
+    margin-top: 30rpx;
+}
+
+.user_options  {
+    margin-left: 20rpx;
 }
 
 .user_options_icon {
@@ -52,12 +57,12 @@
 .user_options_title{
     font-size: 28rpx;
     margin-left: 45rpx;
-    padding-bottom: 25rpx;
+    /* padding-bottom: 25rpx; */
 }
 
 .user_options_item {
     display: flex;
-    margin-top: 40rpx;
+    /* margin-top: 40rpx; */
     border-bottom: 1rpx solid #F5F5F5;
 }
 
@@ -72,10 +77,13 @@
 }
 
 .login-logo {
+    margin-top: 200rpx;
     width: 333rpx;
     height: 350rpx;
 }
 
 .login-button {
-    margin-top: 80rpx;
+    margin-top: 120rpx;
+    margin: 0 auto;
+    width: 600rpx;
 }
